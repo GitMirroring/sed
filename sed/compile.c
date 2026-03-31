@@ -972,7 +972,7 @@ compile_program (struct vector *vector)
       if (posixicity == POSIXLY_BASIC)
        switch (ch)
          {
-           case 'e': case 'F': case 'v': case 'z': case 'L':
+           case 'e': case 'F': case 'v': case 'z':
            case 'Q': case 'T': case 'R': case 'W':
              bad_prog ("unknown command: '%c'", ch);
              FALLTHROUGH;
@@ -1093,7 +1093,6 @@ compile_program (struct vector *vector)
             bad_prog ("command only uses one address");
           FALLTHROUGH;
 
-        case 'L':
         case 'l':
           ch = in_nonblank ();
           if (ISDIGIT (ch) && posixicity != POSIXLY_BASIC)
