@@ -562,7 +562,7 @@ open_next_file (const char *name, struct input *input)
       if (follow_symlinks)
         input->in_file_name = follow_symlink (name);
 
-      if ( ! (input->fp = ck_fopen (name, read_mode, false)) )
+      if ( ! (input->fp = ck_fopen (input->in_file_name, read_mode, false)) )
         {
           const char *ptr = strerror (errno);
           fprintf (stderr, _("%s: can't read %s: %s\n"), program_name,
