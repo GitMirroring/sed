@@ -362,10 +362,7 @@ next_cmd_entry (struct vector *v)
     v->v = xpalloc (v->v, &v->v_allocated, 1, -1, sizeof *v->v);
 
   cmd = v->v + v->v_length;
-  cmd->a1 = NULL;
-  cmd->a2 = NULL;
-  cmd->range_state = RANGE_INACTIVE;
-  cmd->addr_bang = false;
+  memset (cmd, 0, sizeof *cmd);
   cmd->cmd = '\0';	/* something invalid, to catch bugs early */
 
   return cmd;
