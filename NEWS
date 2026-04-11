@@ -4,6 +4,13 @@ GNU sed NEWS                                    -*- outline -*-
 
 ** Bug fixes
 
+  sed no longer rejects the documented GNU extension 'a**' (equivalent
+  to 'a*') in Basic Regular Expression (BRE) mode.  Previously, this
+  worked only with -E (ERE mode), even though grep has always accepted
+  it in BRE mode.
+  [bug present since "the beginning"]
+
+
   sed no longer rejects "\c[" in regular expressions
   [bug present since the beginning]
 
