@@ -76,6 +76,7 @@ T =					\
   testsuite/obinary.sh			\
   testsuite/panic-tests.sh		\
   testsuite/posix-backslash-warn.sh	\
+  testsuite/posix-bracket-esc.sh	\
   testsuite/posix-char-class.sh		\
   testsuite/posix-mode-addr.sh		\
   testsuite/posix-mode-bad-ref.sh	\

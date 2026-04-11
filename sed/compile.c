@@ -1408,7 +1408,7 @@ convert:
           case ':':
           case '.':
           case '=':
-            if (bracket_state == -1 && p[-1] == '[')
+            if (bracket_state == -1 && q[-1] == '[')
               bracket_state = *p;
             break;
 
@@ -1417,7 +1417,7 @@ convert:
               ;
             else if (bracket_state == -1)
               bracket_state = 0;
-            else if (p[-2] != bracket_state && p[-1] == bracket_state)
+            else if (q[-2] != bracket_state && q[-1] == bracket_state)
               bracket_state = -1;
             break;
           }
