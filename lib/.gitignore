@@ -296,3 +296,16 @@
 /strnul.c
 /stdcountof.h
 /stdcountof.in.h
+/btoc32.c
+/c32_apply_type_test.c
+/c32_get_type_test.c
+/c32isalnum.c
+/c32isalpha.c
+/c32isblank.c
+/c32iscntrl.c
+/c32isdigit.c
+/c32isgraph.c
+/c32islower.c
+/c32ispunct.c
+/c32isupper.c
+/c32isxdigit.c

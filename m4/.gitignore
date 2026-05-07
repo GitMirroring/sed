@@ -286,3 +286,4 @@
 /memeq.m4
 /stdcountof_h.m4
 /streq.m4
+/mbrtoc32-regular.m4
