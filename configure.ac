@@ -247,6 +247,7 @@ if test "$gl_gcc_warnings" = yes; then
   done
   gl_WARN_ADD([-Wno-sign-compare])     # Too many warnings for now
   gl_WARN_ADD([-Wno-format-nonliteral]) # ngettext in ck_fwrite
+  gl_WARN_ADD([-Wno-keyword-macro])
 
   # clang is unduly picky about some things.
   AC_CACHE_CHECK([whether the compiler is clang], [utils_cv_clang],
