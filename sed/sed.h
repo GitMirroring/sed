@@ -19,6 +19,7 @@
 #include "dfa.h"
 #include "localeinfo.h"
 #include "regex.h"
+#include <stdint.h>
 #include <stdio.h>
 #include "unlocked-io.h"
 
