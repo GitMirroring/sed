@@ -90,4 +90,35 @@ sed --posix 's/abc/\|/g' input6 > out6 2> out-err6 || fail=1
 compare_ out6 exp-out6 || fail=1
 compare_ out-err6 exp-err6 || fail=1
 
+# Test that BRE interval expressions do not warn.
+echo 'abc' > input7 || framework_failure_
+cat << \EOF > exp-out7 || framework_failure_
+def
+EOF
+
+sed --posix 's/abc\{0,1\}/def/g' input7 > out7 2> out-err7 || fail=1
+compare_ out7 exp-out7 || fail=1
+compare_ out-err7 /dev/null || fail=1
+
+# Test that BRE subexpressions do not warn.
+echo 'abc' > input8 || framework_failure_
+cat << \EOF > exp-out8 || framework_failure_
+def
+EOF
+
+sed --posix 's/ab\(c\)/def/g' input8 > out8 2> out-err8 || fail=1
+compare_ out8 exp-out8 || fail=1
+compare_ out-err8 /dev/null || fail=1
+
+# Test that ERE special characters do not warn.
+echo '.[\()*+?{}|^$' > input9
+cat << \EOF > exp-out9 || framework_failure_
+abc
+EOF
+
+sed -E --posix 's/^\.\[\\\(\)\*\+\?\{\}\|\^\$$/abc/g' \
+  input9 > out9 2> out-err9 || fail=1
+compare_ out9 exp-out9 || fail=1
+compare_ out-err9 /dev/null || fail=1
+
 Exit $fail

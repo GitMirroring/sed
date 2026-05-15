@@ -2,6 +2,12 @@ GNU sed NEWS                                    -*- outline -*-
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+** Bug fixes
+
+  sed --posix no longer warns about escaped special characters in the
+  's' command.
+  [bug introduced in sed 4.10]
+
 
 * Noteworthy changes in release 4.10 (2026-04-21) [stable]
 

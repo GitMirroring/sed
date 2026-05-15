@@ -486,8 +486,15 @@ match_slash (int slash, bool regex, bool s_command)
                 /* Skip end-of-loop add1_buffer, we already did it.  */
                 continue;
               }
+              /* Warn for some non-portable backslash escapes if --posix is
+                 in use.  Note that we ignore any special characters, although
+                 they may be non-portable in some contexts.  */
+              char const *special_chars
+                = ((extended_regexp_flags & REG_EXTENDED)
+                   ? ".[\\()*+?{}|^$" : ".[\\*^$)({}");
               if (s_command && posixicity != POSIXLY_EXTENDED && ch != '&'
-                  && ch != '\\' && !ISDIGIT (ch) && ch != '\n' && ch != slash)
+                  && ch != '\\' && !ISDIGIT (ch) && ch != '\n' && ch != slash
+                  && !strchr (special_chars, ch))
                 fprintf (stderr, _("%s: warning: using \"\\%c\" in the 's' "
                                    "command is not portable\n"),
                          program_name, ch);
